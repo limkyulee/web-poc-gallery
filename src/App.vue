@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ScrollInteraction from './components/ScrollInteraction.vue';
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <ScrollInteraction/>
+  <RouterView />
 </template>
 
 <style scoped>
