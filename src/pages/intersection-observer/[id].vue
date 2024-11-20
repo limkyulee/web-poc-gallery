@@ -9,7 +9,7 @@ const route = useRoute()
 <template>
   <InfinityScroll v-if="route.params.id === 'infinity-scroll'" />
   <Popup v-else-if="route.params.id === 'popup'" />
-  <OptionCheck v-else-if="route.params.id === 'options'" />
+  <OptionCheck v-else-if="route.params.id === 'options-info'" />
   <div v-else>Not Ready</div>
 </template>
 
