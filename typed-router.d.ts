@@ -39,7 +39,6 @@ declare module 'vue-router/auto/routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/intersection-observer/': RouteRecordInfo<'/intersection-observer/', '/intersection-observer', Record<never, never>, Record<never, never>>,
     '/intersection-observer/[id]': RouteRecordInfo<'/intersection-observer/[id]', '/intersection-observer/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
-    '/intersection-observer/options': RouteRecordInfo<'/intersection-observer/options', '/intersection-observer/options', Record<never, never>, Record<never, never>>,
   }
 }
 
