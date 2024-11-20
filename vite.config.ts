@@ -5,6 +5,8 @@ import VueRouter from 'unplugin-vue-router/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import Pages from 'vite-plugin-pages';
 import Layouts from 'vite-plugin-vue-layouts';
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -22,9 +24,13 @@ export default defineConfig({
         VueRouterAutoImports,
         '@vueuse/core'
       ],
+      resolvers: [ElementPlusResolver()],
       dts: 'src/auto-imports.d.ts',
       dirs: ['src/composables/**', 'src/store', 'src/utils', 'src/system/store'],
       vueTemplate: true,
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
     }),
     Pages(),
     Layouts({
@@ -39,3 +45,4 @@ export default defineConfig({
   //     },
   // },
 })
+
