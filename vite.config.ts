@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import path from 'node:path'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import VueRouter from 'unplugin-vue-router/vite'
@@ -43,10 +44,10 @@ export default defineConfig({
     }),
     Markdown()
   ],
-  // resolve: {
-  //     alias: {
-  //         "~": fileURLToPath(new URL("./src", import.meta.url)),
-  //     },
-  // },
+  resolve: {
+      alias: {
+         '@/': `${path.resolve(__dirname, 'src')}/`,
+      },
+  },
 })
 

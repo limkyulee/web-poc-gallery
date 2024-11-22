@@ -1,43 +1,61 @@
 <script lang="ts" setup>
 import { useIntersect } from '../../composable/useInteraction';
+import request from '../../composable/request';
 
-const items = ref(20)
+const items = ref<{id: string, productName: string, description: string, price: string}[]>([])
 
-const fetchInfinityMockData = () => {
-  if(items.value > 50) return []
-  items.value += 5
+const getInfinityMockData = async() => {
+  try {
+    const res = await request.get('/infinity')
+    return res.data
+  } catch (error) {
+    console.error(error)
+  }
 }
 
-const targetRef = useIntersect(async (entry, observer) => {
-  const res = await fetchInfinityMockData()
-  if(res?.length === 0){
-    console.log('stop intersecting')
-    
+const requestInfinityMockData = async(entry?: any,observer?: any) => {
+  const res = await getInfinityMockData()
+  if(res.length === 0){
     // [INFO]
     // unobserve ::
     // 실행 시, 관찰대상자가 root 선을 넘었을 경우 관찰 종료
     // 미실행 시, 위로 스크롤하면 이벤트 재활성화
     observer.unobserve(entry.target)
+  }else {
+    items.value = [...items.value, ...res];
   }
+}
+
+const targetRef = useIntersect(async (entry, observer) => {
+  requestInfinityMockData(entry, observer)
  }, {
+  // API 를 선출하기 위한 margin 설정
+  rootMargin: '200px'
  })
 
+
+ const init = async() => {
+  const res = await getInfinityMockData()
+  items.value = res
+ }
+
+init()
 </script>
 
 <template>
   <div class="card-container">
     <div 
       class="card" 
-      v-for="(index) in items" 
-      :key="index"
+      v-for="(item, index) in items" 
+      :key="`product-item-${index}`"
     >
       <!-- Image -->
       <img src="https://via.placeholder.com/100/000000" alt="Product Image" class="card-image" />
       <!-- Text -->
       <div class="card-content">
-        <p class="card-title">Product {{ index  }}</p>
-        <p class="card-description">This is a very detailed description that might be too long to fit in the card properly.</p>
-        <p class="card-price">5,000원</p>
+        <p class="card-title">{{ item.productName  }}{{ index + 1 }}</p>
+        <p class="card-description">{{ item.description }}</p>
+        <p class="card-price">{{ item.price }}</p>
       </div>
     </div>
     <!-- scroll endpoint target(관찰대상자)-->

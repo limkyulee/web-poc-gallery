@@ -14,6 +14,7 @@ declare module 'vue' {
     ElDialog: typeof import('element-plus/es')['ElDialog']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     InfinityScroll: typeof import('./src/components/intersection/InfinityScroll.vue')['default']
+    Map: typeof import('./src/components/cqis/map.vue')['default']
     Modal: typeof import('./src/components/intersection/Modal.vue')['default']
     OptionCheck: typeof import('./src/components/intersection/OptionCheck.vue')['default']
     Popup: typeof import('./src/components/intersection/Popup.vue')['default']
