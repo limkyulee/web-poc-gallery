@@ -11,7 +11,7 @@ const moveToDetail = (id: string) => {
     <p class="text-sm" @click="moveToDetail('options-info')"><b>O</b>ptions Info <b class="text-md">&#8250;</b></p>
     <p class="text-sm" @click="moveToDetail('infinity-scroll')"><b>I</b>nfinity Scroll <b class="text-md">&#8250;</b></p>
     <p class="text-sm" @click="moveToDetail('popup')"><b>P</b>opup <b class="text-md">&#8250;</b></p>
-    
+    <p class="text-sm" @click="moveToDetail('modal')"><b>C</b>ommon Modal <b class="text-md">&#8250;</b></p>
   </div>
 </template>
 

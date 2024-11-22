@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite-ssg build -c another-vite.config.ts",
+    "build": "vite-ssg build --mode production",
+    "build:dev": "vite-ssg build --mode development",
+    "dev": "vite --host",
     "preview": "vite preview"
   },
   "dependencies": {
