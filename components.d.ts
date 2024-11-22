@@ -7,11 +7,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ComModal: typeof import('./src/components/intersection/ComModal.vue')['default']
+    CommonModal: typeof import('./src/components/intersection/Common-modal.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElDialog: typeof import('element-plus/es')['ElDialog']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     InfinityScroll: typeof import('./src/components/intersection/InfinityScroll.vue')['default']
+    Modal: typeof import('./src/components/intersection/Modal.vue')['default']
     OptionCheck: typeof import('./src/components/intersection/OptionCheck.vue')['default']
     Popup: typeof import('./src/components/intersection/Popup.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
