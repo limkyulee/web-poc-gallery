@@ -75,6 +75,7 @@ const objectFullTargetRef = useIntersect(async (entry, observer) => {
   <ComModal 
     v-if="isShow"
     :visible-modal="isShow" 
+    :modal-width="'300px'"
     @close-modal="isShow = false"
   >
     <template #content>
