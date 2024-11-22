@@ -38,15 +38,6 @@ const handleModal = () => {
   emits('closeModal')
 }
 
-const modalWidth = computed(() => {
-  if (props.size === 'sm')
-    return 'var(--modal-sm-width)'
-  else if (props.size === 'md')
-    return 'var(--modal-md-width)'
-  else if (props.size === 'lg')
-    return 'var(--modal-lg-width)'
-})
-
 </script>
 
 <template>
