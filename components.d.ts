@@ -12,6 +12,8 @@ declare module 'vue' {
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElDialog: typeof import('element-plus/es')['ElDialog']
+    GlobeGl: typeof import('./src/components/three-dimensional/GlobeGl.vue')['default']
+    GlobeGL: typeof import('./src/components/three-dimensional/GlobeGL.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     InfinityScroll: typeof import('./src/components/intersection/InfinityScroll.vue')['default']
     Map: typeof import('./src/components/cqis/map.vue')['default']
@@ -20,5 +22,7 @@ declare module 'vue' {
     Popup: typeof import('./src/components/intersection/Popup.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ThreeJs: typeof import('./src/components/three-dimensional/ThreeJs.vue')['default']
+    ThreeJS: typeof import('./src/components/three-dimensional/ThreeJS.vue')['default']
   }
 }

@@ -20,11 +20,12 @@ const goToMain = () => {
     </header>
 
     <!-- Main Content -->
-     <div class="p-5">
+    <div class="p-5">
       <RouterView />
-     </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
+
 </style>
