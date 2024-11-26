@@ -14,6 +14,7 @@ declare module 'vue' {
     ElDialog: typeof import('element-plus/es')['ElDialog']
     GlobeGl: typeof import('./src/components/three-dimensional/GlobeGl.vue')['default']
     GlobeGL: typeof import('./src/components/three-dimensional/GlobeGL.vue')['default']
+    Header: typeof import('./src/components/layouts/Header.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     InfinityScroll: typeof import('./src/components/intersection/InfinityScroll.vue')['default']
     Map: typeof import('./src/components/cqis/map.vue')['default']

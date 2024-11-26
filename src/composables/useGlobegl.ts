@@ -18,7 +18,7 @@ export function useGlobe() {
 			const camera = myGlobe.camera()
 			const controls = myGlobe.controls()
 			
-    	controls.camera
+    	controls.camera = camera
 			camera.position.set(0, 0, 380)
 
     	controls.minDistance = 350 // 가까워질 수 있는 정도

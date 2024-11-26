@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import * as THREE from 'three'
-import { useGlobe } from '../../composable/useGlobegl'
+import { useGlobe } from '../../composables/useGlobegl'
 
 const { myGlobe, globeRef } = useGlobe()
 

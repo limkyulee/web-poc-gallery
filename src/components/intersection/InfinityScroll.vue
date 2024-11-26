@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { useIntersect } from '../../composable/useInteraction';
-import request from '../../composable/request';
+import { useIntersect } from '../../composables/useInteraction';
+import request from '../../composables/request';
 
 const items = ref<{id: string, productName: string, description: string, price: string}[]>([])
 

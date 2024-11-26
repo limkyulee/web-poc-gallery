@@ -1,5 +1,6 @@
 <script setup ="ts">
 import { RouterView } from 'vue-router';
+import Header from '../components/layouts/Header.vue';
 
 const router = useRouter()
 const backToPage = () => {
@@ -12,19 +13,18 @@ const goToMain = () => {
 </script>
 
 <template>
-  <div class="h-screen">
-    <!-- Header -->
-    <header class="flex flex-2 items-center justify-between mx-5 mt-3">
-      <nav class="text-lg text-semibold cursor-pointer" @click="backToPage">&#8249;</nav>
-      <nav class="text-xs text-semibold cursor-pointer" @click="goToMain">@limkyulee / web-poc-gallery</nav>
-    </header>
-
-    <!-- Main Content -->
-    <div class="p-5">
-      <RouterView />
-    </div>
-  </div>
-</template>
+  <main>
+    <section>
+      <div>
+        <Header />
+      </div>
+      <!-- Main Content -->
+      <div class="p-5">
+        <RouterView />
+      </div>
+    </section>
+  </main>
+ </template>
 
 <style scoped>
 

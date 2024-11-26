@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useIntersect } from '../../composable/useInteraction';
+import { useIntersect } from '../../composables/useInteraction';
 
 const isShow = ref(true)
 const mockData = ref<string[]>([]); // 목업 데이터 저장

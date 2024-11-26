@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useIntersect } from '../../composable/useInteraction';
+import { useIntersect } from '../../composables/useInteraction';
 import ComModal from './ComModal.vue';
 
 const isShow = ref(true)

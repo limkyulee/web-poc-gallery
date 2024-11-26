@@ -28,7 +28,7 @@ export default defineConfig({
       ],
       resolvers: [ElementPlusResolver()],
       dts: 'src/auto-imports.d.ts',
-      dirs: ['src/composables/**', 'src/store', 'src/utils', 'src/system/store'],
+      dirs: ['src/composables/**', 'src/store', 'src/utils'],
       vueTemplate: true,
     }),
     Components({
