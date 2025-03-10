@@ -9,6 +9,7 @@ import Layouts from 'vite-plugin-vue-layouts';
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Markdown from 'vite-plugin-md';
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -42,7 +43,8 @@ export default defineConfig({
     vue({
       include: [/\.vue$/], // .md 파일을 vue 컴포넌트로 처리
     }),
-    Markdown()
+    Markdown(),
+    tailwindcss(),
   ],
   resolve: {
       alias: {
