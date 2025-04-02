@@ -1,55 +1,45 @@
 import Globe from 'globe.gl'
 
+/**
+ * Globe 셍성
+ * 지연 접근을 방지하기 위해 controls 제어 시점마다 생성.
+ * @returns globeRef
+ */
+
 export function useGlobe() {
-  const globeRef = shallowRef<HTMLCanvasElement | null>(null)
-	const myGlobe = Globe({
+  const globeRef = ref<HTMLCanvasElement | null>(null)
+	const globe = Globe({
 		animateIn: false	 // 초기 로딩 시, 애니메이션 미실행 
 	}) 
 
-	const handleLoadGlobe = () => {
-		if (globeRef.value) {
-			myGlobe(globeRef.value)
-				.globeImageUrl(new URL('@/assets/images/earth-blue-marble.jpg', import.meta.url).href)
-				.bumpImageUrl(new URL('@/assets/images/earth-topology.png', import.meta.url).href)
-				// .atmosphereColor('#e96288')
-				.width(window.innerWidth)
-				.height(window.innerHeight)
-
-			const camera = myGlobe.camera()
-			const controls = myGlobe.controls()
-			
-    	controls.camera = camera
-			camera.position.set(0, 0, 380)
-
-    	controls.minDistance = 350 // 가까워질 수 있는 정도
-    	controls.maxDistance = 800  // 멀어질 수 있는 정도
-    	controls.autoRotate = true // 초기 로딩 시, 회전 여부 지정
-    	controls.autoRotateSpeed = 0.35; // 회전 속도
-		}
+	const setupCamera = () => {
+		const camera = globe.camera()
+		camera.position.set(0, 0, 380)
 	}
 
-	// const createGlobeMarker = (corpData, onClickMarker: (data: IMarker) => void) => {
-	// 	myGlobe.htmlElementsData(corpData).htmlElement((d: object) => {
-	// 		const data = d as IMarker
-	// 		const el = document.createElement('div')
-	
-	// 		// el.innerHTML = data.dispYn === 'Y' ? (data.corpTp === 'S' ? saleFavorMarker : productFavorMarker) : data.corpTp === 'S' ? newSaleSvg : newProductSvg
-	// 		el.style.color = data.color
-	// 		el.style.width = data.dispYn === 'Y' ? '20px' : `${data.size}px`
-	// 		el.style.pointerEvents = 'auto'
-	// 		el.style.cursor = 'pointer'
-	// 		el.style.zIndex = '10'
-			
-	// 		el.onclick = (event: MouseEvent) => {
-	// 			onClickMarker(data)
-  //       event.stopPropagation()
-	// 		}
-	// 		return el
-	// 	})
-	// }
+	const setupControls = () => {
+		const controls = globe.controls()
+    controls.minDistance = 350 // 가까워질 수 있는 정도
+    controls.maxDistance = 800  // 멀어질 수 있는 정도
+    controls.autoRotate = true // 초기 로딩 시, 회전 여부 지정
+    controls.autoRotateSpeed = 0.35; // 회전 속도
+	}
 
-	const handleGlobeMoving = (lat: number, lng: number, autoRotate: boolean, altitude = 2.5) => {
-		myGlobe.pointOfView(
+	const initGlobe = () => {
+		if(!globeRef.value) throw new Error("No globeRef")
+			
+		globe(globeRef.value)
+			.globeImageUrl(new URL('@/assets/images/earth-blue-marble.jpg', import.meta.url).href)
+			.bumpImageUrl(new URL('@/assets/images/earth-topology.png', import.meta.url).href)
+			.width(window.innerWidth)
+			.height(window.innerHeight)
+
+		setupCamera()
+		setupControls()
+	}
+
+	const handleGlobePOV = (lat: number, lng: number, autoRotate: boolean, altitude = 2.5) => {
+		globe.pointOfView(
 			{
 				lat,
 				lng,
@@ -57,58 +47,34 @@ export function useGlobe() {
 			},
 			1000
 		)
-		myGlobe.controls().autoRotate = autoRotate
+		globe.controls().autoRotate = autoRotate
 	}
 
-	const handleGlobeStop = () => {
-		const controls = myGlobe.controls()
-		controls.autoRotate = false
-	}
-
-	const handleGlobeStart = () => {
-		const controls = myGlobe.controls()
-		controls.autoRotate = true
-	}
-
-	const destroyGlobe = () => {
-		globeRef.value = null
-		// myGlobe.destroy()
-	}
-
-  const init = () => {
-    handleLoadGlobe()
-  }
-  
-	const showGlobe =(isShow = true)=>{
-		myGlobe.showGlobe(isShow)
-		const controls = myGlobe.controls()
-		controls.autoRotate = isShow
-    controls.autoRotateSpeed = 0.5;
-		myGlobe.showAtmosphere(isShow)
-		myGlobe.showGraticules(isShow)
+	const handleGlobeMove = (isMove = true) => {
+		const controls = globe.controls()
+		controls.autoRotate = isMove
 	}
 
   onMounted(async() => {
-		init()
+		initGlobe()
   })
+
+	const destroyGlobe = () => {
+		globe.showGlobe(false)
+		globe.showAtmosphere(false)
+		globe.showGraticules(false)
+		globeRef.value = null
+	}
 
 	onUnmounted(()=>{
 		destroyGlobe()
 	})
 
   return {
-    myGlobe,
-    // camera,
-    // controls,
-    globeRef,
-		// createGlobeMarker,
-		handleGlobeMoving,
-    handleLoadGlobe,
-		handleGlobeStop,
-		handleGlobeStart,
-		destroyGlobe,
-    init,
-		showGlobe
+    globe,
+   	globeRef,
+		handleGlobePOV,
+		handleGlobeMove
   }
 }
 

@@ -19,7 +19,8 @@ const moveToPage = (path: string) => {
     <h1 class="mb-5"><b>&#10043; Chapter</b></h1>
     <div class="flex justify-start gap-5">
       <button class="button" @click="moveToPage('/infinity-scroll')">Scroll Interaction &#10024;</button>
-      <button class="button" @click="moveToPage('/web-gl')">ThreeJS</button>
+      <button class="button" @click="moveToPage('/web-gl')">WebGL</button>
+      <button class="button" disabled @click="moveToPage('/gsap')">Gsap (Upcoming)</button>
     </div>
   </div>
 </template>

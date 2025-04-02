@@ -37,6 +37,7 @@ import type {
 declare module 'vue-router/auto/routes' {
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
+    '/common/upcoming': RouteRecordInfo<'/common/upcoming', '/common/upcoming', Record<never, never>, Record<never, never>>,
     '/infinity-scroll/': RouteRecordInfo<'/infinity-scroll/', '/infinity-scroll', Record<never, never>, Record<never, never>>,
     '/infinity-scroll/[id]': RouteRecordInfo<'/infinity-scroll/[id]', '/infinity-scroll/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/web-gl/': RouteRecordInfo<'/web-gl/', '/web-gl', Record<never, never>, Record<never, never>>,

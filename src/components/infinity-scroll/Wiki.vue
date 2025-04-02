@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { marked } from 'marked';
-import optionsMarkdown from '@/docs/infinity-scroll/intersection-observer/options.md'; // 파일 내용을 문자열로 로드
+import optionsMarkdown from '@/docs/infinity-scroll/intersection-observer/options.md?raw'; // 파일 내용을 문자열로 로드
 
 const markdown = ref(optionsMarkdown); // 마크다운 파일 내용을 가져오기
 const markdownToHtml = computed(() => marked(markdown.value)); // HTML 변환
