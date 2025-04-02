@@ -33,15 +33,15 @@ declare global {
   const defineComponent: typeof import('vue')['defineComponent']
   const defineLoader: typeof import('vue-router/auto')['defineLoader']
   const definePage: typeof import('unplugin-vue-router/runtime')['_definePage']
-  const download3DModelFile: typeof import('./composables/three/utils')['download3DModelFile']
+  const download3DModelFile: typeof import('./composables/web-gl/three/utils')['download3DModelFile']
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
   const extendRef: typeof import('@vueuse/core')['extendRef']
-  const getCamera: typeof import('./composables/three/utils')['getCamera']
-  const getControls: typeof import('./composables/three/utils')['getControls']
+  const getCamera: typeof import('./composables/web-gl/three/utils')['getCamera']
+  const getControls: typeof import('./composables/web-gl/three/utils')['getControls']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
-  const getRenderer: typeof import('./composables/three/utils')['getRenderer']
+  const getRenderer: typeof import('./composables/web-gl/three/utils')['getRenderer']
   const h: typeof import('vue')['h']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
@@ -51,12 +51,12 @@ declare global {
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
-  const lights: typeof import('./composables/three/constants')['lights']
-  const loadGUI: typeof import('./composables/three/utils')['loadGUI']
-  const loadMtlMaterial: typeof import('./composables/three/utils')['loadMtlMaterial']
-  const loadObjModel: typeof import('./composables/three/utils')['loadObjModel']
-  const loadPlyModel: typeof import('./composables/three/utils')['loadPlyModel']
-  const loaders: typeof import('./composables/three/constants')['loaders']
+  const lights: typeof import('./composables/web-gl/three/constants')['lights']
+  const loadGUI: typeof import('./composables/web-gl/three/utils')['loadGUI']
+  const loadMtlMaterial: typeof import('./composables/web-gl/three/utils')['loadMtlMaterial']
+  const loadObjModel: typeof import('./composables/web-gl/three/utils')['loadObjModel']
+  const loadPlyModel: typeof import('./composables/web-gl/three/utils')['loadPlyModel']
+  const loaders: typeof import('./composables/web-gl/three/constants')['loaders']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
   const markRaw: typeof import('vue')['markRaw']
   const nextTick: typeof import('vue')['nextTick']
@@ -96,11 +96,11 @@ declare global {
   const refDefault: typeof import('@vueuse/core')['refDefault']
   const refThrottled: typeof import('@vueuse/core')['refThrottled']
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
-  const request: typeof import('./composables/request')['default']
+  const request: typeof import('./composables/axios/request')['default']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
-  const scene: typeof import('./composables/three/constants')['scene']
+  const scene: typeof import('./composables/web-gl/three/constants')['scene']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
@@ -190,12 +190,12 @@ declare global {
   const useFullscreen: typeof import('@vueuse/core')['useFullscreen']
   const useGamepad: typeof import('@vueuse/core')['useGamepad']
   const useGeolocation: typeof import('@vueuse/core')['useGeolocation']
-  const useGlobe: typeof import('./composables/useGlobegl')['useGlobe']
+  const useGlobe: typeof import('./composables/web-gl/globegl/useGlobegl')['useGlobe']
   const useId: typeof import('vue')['useId']
   const useIdle: typeof import('@vueuse/core')['useIdle']
   const useImage: typeof import('@vueuse/core')['useImage']
   const useInfiniteScroll: typeof import('@vueuse/core')['useInfiniteScroll']
-  const useIntersect: typeof import('./composables/useInteraction')['useIntersect']
+  const useIntersect: typeof import('./composables/infinity-scroll/useInteraction')['useIntersect']
   const useIntersectionObserver: typeof import('@vueuse/core')['useIntersectionObserver']
   const useInterval: typeof import('@vueuse/core')['useInterval']
   const useIntervalFn: typeof import('@vueuse/core')['useIntervalFn']
@@ -261,7 +261,7 @@ declare global {
   const useTextDirection: typeof import('@vueuse/core')['useTextDirection']
   const useTextSelection: typeof import('@vueuse/core')['useTextSelection']
   const useTextareaAutosize: typeof import('@vueuse/core')['useTextareaAutosize']
-  const useThree: typeof import('./composables/three/index')['useThree']
+  const useThree: typeof import('./composables/web-gl/three/index')['useThree']
   const useThrottle: typeof import('@vueuse/core')['useThrottle']
   const useThrottleFn: typeof import('@vueuse/core')['useThrottleFn']
   const useThrottledRefHistory: typeof import('@vueuse/core')['useThrottledRefHistory']
@@ -344,15 +344,15 @@ declare module 'vue' {
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly defineLoader: UnwrapRef<typeof import('vue-router/auto')['defineLoader']>
     readonly definePage: UnwrapRef<typeof import('unplugin-vue-router/runtime')['_definePage']>
-    readonly download3DModelFile: UnwrapRef<typeof import('./composables/three/utils')['download3DModelFile']>
+    readonly download3DModelFile: UnwrapRef<typeof import('./composables/web-gl/three/utils')['download3DModelFile']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
-    readonly getCamera: UnwrapRef<typeof import('./composables/three/utils')['getCamera']>
-    readonly getControls: UnwrapRef<typeof import('./composables/three/utils')['getControls']>
+    readonly getCamera: UnwrapRef<typeof import('./composables/web-gl/three/utils')['getCamera']>
+    readonly getControls: UnwrapRef<typeof import('./composables/web-gl/three/utils')['getControls']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
-    readonly getRenderer: UnwrapRef<typeof import('./composables/three/utils')['getRenderer']>
+    readonly getRenderer: UnwrapRef<typeof import('./composables/web-gl/three/utils')['getRenderer']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -362,12 +362,12 @@ declare module 'vue' {
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
-    readonly lights: UnwrapRef<typeof import('./composables/three/constants')['lights']>
-    readonly loadGUI: UnwrapRef<typeof import('./composables/three/utils')['loadGUI']>
-    readonly loadMtlMaterial: UnwrapRef<typeof import('./composables/three/utils')['loadMtlMaterial']>
-    readonly loadObjModel: UnwrapRef<typeof import('./composables/three/utils')['loadObjModel']>
-    readonly loadPlyModel: UnwrapRef<typeof import('./composables/three/utils')['loadPlyModel']>
-    readonly loaders: UnwrapRef<typeof import('./composables/three/constants')['loaders']>
+    readonly lights: UnwrapRef<typeof import('./composables/web-gl/three/constants')['lights']>
+    readonly loadGUI: UnwrapRef<typeof import('./composables/web-gl/three/utils')['loadGUI']>
+    readonly loadMtlMaterial: UnwrapRef<typeof import('./composables/web-gl/three/utils')['loadMtlMaterial']>
+    readonly loadObjModel: UnwrapRef<typeof import('./composables/web-gl/three/utils')['loadObjModel']>
+    readonly loadPlyModel: UnwrapRef<typeof import('./composables/web-gl/three/utils')['loadPlyModel']>
+    readonly loaders: UnwrapRef<typeof import('./composables/web-gl/three/constants')['loaders']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
@@ -407,11 +407,11 @@ declare module 'vue' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
-    readonly request: UnwrapRef<typeof import('./composables/request')['default']>
+    readonly request: UnwrapRef<typeof import('./composables/axios/request')['default']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
-    readonly scene: UnwrapRef<typeof import('./composables/three/constants')['scene']>
+    readonly scene: UnwrapRef<typeof import('./composables/web-gl/three/constants')['scene']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
@@ -501,12 +501,12 @@ declare module 'vue' {
     readonly useFullscreen: UnwrapRef<typeof import('@vueuse/core')['useFullscreen']>
     readonly useGamepad: UnwrapRef<typeof import('@vueuse/core')['useGamepad']>
     readonly useGeolocation: UnwrapRef<typeof import('@vueuse/core')['useGeolocation']>
-    readonly useGlobe: UnwrapRef<typeof import('./composables/useGlobegl')['useGlobe']>
+    readonly useGlobe: UnwrapRef<typeof import('./composables/web-gl/globegl/useGlobegl')['useGlobe']>
     readonly useId: UnwrapRef<typeof import('vue')['useId']>
     readonly useIdle: UnwrapRef<typeof import('@vueuse/core')['useIdle']>
     readonly useImage: UnwrapRef<typeof import('@vueuse/core')['useImage']>
     readonly useInfiniteScroll: UnwrapRef<typeof import('@vueuse/core')['useInfiniteScroll']>
-    readonly useIntersect: UnwrapRef<typeof import('./composables/useInteraction')['useIntersect']>
+    readonly useIntersect: UnwrapRef<typeof import('./composables/infinity-scroll/useInteraction')['useIntersect']>
     readonly useIntersectionObserver: UnwrapRef<typeof import('@vueuse/core')['useIntersectionObserver']>
     readonly useInterval: UnwrapRef<typeof import('@vueuse/core')['useInterval']>
     readonly useIntervalFn: UnwrapRef<typeof import('@vueuse/core')['useIntervalFn']>
@@ -572,7 +572,7 @@ declare module 'vue' {
     readonly useTextDirection: UnwrapRef<typeof import('@vueuse/core')['useTextDirection']>
     readonly useTextSelection: UnwrapRef<typeof import('@vueuse/core')['useTextSelection']>
     readonly useTextareaAutosize: UnwrapRef<typeof import('@vueuse/core')['useTextareaAutosize']>
-    readonly useThree: UnwrapRef<typeof import('./composables/three/index')['useThree']>
+    readonly useThree: UnwrapRef<typeof import('./composables/web-gl/three/index')['useThree']>
     readonly useThrottle: UnwrapRef<typeof import('@vueuse/core')['useThrottle']>
     readonly useThrottleFn: UnwrapRef<typeof import('@vueuse/core')['useThrottleFn']>
     readonly useThrottledRefHistory: UnwrapRef<typeof import('@vueuse/core')['useThrottledRefHistory']>

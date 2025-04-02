@@ -37,10 +37,10 @@ import type {
 declare module 'vue-router/auto/routes' {
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
-    '/intersection-observer/': RouteRecordInfo<'/intersection-observer/', '/intersection-observer', Record<never, never>, Record<never, never>>,
-    '/intersection-observer/[id]': RouteRecordInfo<'/intersection-observer/[id]', '/intersection-observer/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
-    '/three-dimensional/': RouteRecordInfo<'/three-dimensional/', '/three-dimensional', Record<never, never>, Record<never, never>>,
-    '/three-dimensional/[id]': RouteRecordInfo<'/three-dimensional/[id]', '/three-dimensional/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/infinity-scroll/': RouteRecordInfo<'/infinity-scroll/', '/infinity-scroll', Record<never, never>, Record<never, never>>,
+    '/infinity-scroll/[id]': RouteRecordInfo<'/infinity-scroll/[id]', '/infinity-scroll/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/web-gl/': RouteRecordInfo<'/web-gl/', '/web-gl', Record<never, never>, Record<never, never>>,
+    '/web-gl/[id]': RouteRecordInfo<'/web-gl/[id]', '/web-gl/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
   }
 }
 

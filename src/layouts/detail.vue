@@ -1,15 +1,7 @@
 <script setup ="ts">
 import { RouterView } from 'vue-router';
-import Header from '../components/layouts/Header.vue';
+import Header from './components/Header.vue';
 
-const router = useRouter()
-const backToPage = () => {
-  router.back()
-}
-
-const goToMain = () => {
-  router.push('/')
-}
 </script>
 
 <template>

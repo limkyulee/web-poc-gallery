@@ -18,8 +18,8 @@ const moveToPage = (path: string) => {
   <div class="flex-col h-full justify-start align-center">
     <h1 class="mb-5"><b>&#10043; Chapter</b></h1>
     <div class="flex justify-start gap-5">
-      <button class="button" @click="moveToPage('/intersection-observer')">Scroll Interaction &#10024;</button>
-      <button class="button" @click="moveToPage('/three-dimensional')">ThreeJS</button>
+      <button class="button" @click="moveToPage('/infinity-scroll')">Scroll Interaction &#10024;</button>
+      <button class="button" @click="moveToPage('/web-gl')">ThreeJS</button>
     </div>
   </div>
 </template>

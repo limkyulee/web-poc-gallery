@@ -41,14 +41,14 @@ export default defineConfig({
     }),
     // ⚠️ Vue must be placed after VueRouter()
     vue({
-      include: [/\.vue$/], // .md 파일을 vue 컴포넌트로 처리
+      include: [/\.vue$/, /\.md$/], // .md 파일을 vue 컴포넌트로 처리
     }),
     Markdown(),
     tailwindcss(),
   ],
   resolve: {
       alias: {
-         '@/': `${path.resolve(__dirname, 'src')}/`,
+         '@': `${path.resolve(__dirname, 'src')}`,
       },
   },
 })
