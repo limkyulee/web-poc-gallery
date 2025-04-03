@@ -1,30 +1,25 @@
 import { defineConfig } from 'vite'
-import path from 'node:path'
-import vue from '@vitejs/plugin-vue'
-import AutoImport from 'unplugin-auto-import/vite'
-import VueRouter from 'unplugin-vue-router/vite'
-import { VueRouterAutoImports } from 'unplugin-vue-router'
-import Pages from 'vite-plugin-pages';
-import Layouts from 'vite-plugin-vue-layouts';
-import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+import path from 'node:path'
+
+import vue from '@vitejs/plugin-vue'
+import Pages from 'vite-plugin-pages'
+import Layouts from 'vite-plugin-vue-layouts'
+
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+
 import Markdown from 'vite-plugin-md';
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    VueRouter({
-      routesFolder: [
-        { src: 'src/pages', path: '' },
-      ],
-      extensions: ['.vue', '.md'],
-      importMode: 'async',
-    }),
     AutoImport({
       imports: [
         'vue',
-        VueRouterAutoImports,
+        'vue-router',
         '@vueuse/core'
       ],
       resolvers: [ElementPlusResolver()],
@@ -35,13 +30,17 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
-    Pages(),
-    Layouts({
-      layoutsDirs: 'src/layouts',
-    }),
     // ⚠️ Vue must be placed after VueRouter()
     vue({
       include: [/\.vue$/, /\.md$/], // .md 파일을 vue 컴포넌트로 처리
+    }),
+    Pages({
+      dirs: 'src/pages',
+      extensions: ['vue']
+    }),
+    Layouts({
+      layoutsDirs: 'src/layouts',
+      defaultLayout: 'default'
     }),
     Markdown(),
     tailwindcss(),

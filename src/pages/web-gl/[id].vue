@@ -2,7 +2,6 @@
 import Globe from '@/components/web-gl/GlobeGlPOC.vue';
 import Three from '@/components/web-gl/ThreeJsPOC.vue';
 
-
 const route = useRoute()
 
 </script>
@@ -20,4 +19,4 @@ const route = useRoute()
 <route lang="yaml">
   meta:
     layout: detail
-</route>
+  </route>

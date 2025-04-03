@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "auto-imports.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.d.ts", "auto-imports.d.ts"],
   "exclude": ["**/*.test.ts", "**/*.spec.ts"],
   "compilerOptions": {
     "composite": true,

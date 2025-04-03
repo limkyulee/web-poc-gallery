@@ -1,22 +1,34 @@
-import { ViteSSG } from 'vite-ssg'
-import { setupLayouts } from 'virtual:generated-layouts'
-import { routes } from 'vue-router/auto/routes'
+import { createApp } from 'vue'
 import App from './App.vue'
-import type { UserModule } from './types'
 
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
+import routes from 'virtual:generated-pages'
+import {setupLayouts} from 'virtual:generated-layouts'
+
+// page
+import NotFound from '@/pages/common/not-found.vue'
+
+// plugin
+import VueMaplibreGl from '@indoorequal/vue-maplibre-gl'
+
+// style
 import './style.css'
 import '/src/assets/styles/font.css'
 
-// https://github.com/antfu/vite-ssg
-export const createApp = ViteSSG(
-  App,
-  {
-   routes: setupLayouts(routes),
-   base: import.meta.env.BASE_URL
- },
-  (ctx) => {
-    // install all modules under `modules/`
-    Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
-      .forEach(i => i.install?.(ctx))
-  },
-)
+// catch-all 추가
+routes.push({
+  path: '/:pathMatch(.*)*',
+  component: NotFound,
+  meta: { layout: false }
+})
+
+const router = createRouter({
+  // history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: setupLayouts(routes)
+})
+
+createApp(App)
+  .use(router)
+  .use(VueMaplibreGl)
+  .mount('#app')

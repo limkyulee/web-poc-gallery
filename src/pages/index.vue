@@ -18,7 +18,7 @@ const moveToPage = (path: string) => {
   <div class="flex-col h-full justify-start align-center">
     <h1 class="mb-5"><b>&#10043; Chapter</b></h1>
     <div class="flex justify-start gap-5">
-      <button class="button" @click="moveToPage('/infinity-scroll')">Scroll Interaction &#10024;</button>
+      <button class="button" @click="moveToPage('/infinity')">Scroll Interaction &#10024;</button>
       <button class="button" @click="moveToPage('/web-gl')">WebGL</button>
       <button class="button" disabled @click="moveToPage('/gsap')">Gsap (Upcoming)</button>
     </div>
@@ -28,9 +28,3 @@ const moveToPage = (path: string) => {
 <style scoped>
 
 </style>
-
-<route lang="yaml">
-  meta:
-    layout: main
-</route>
- 
