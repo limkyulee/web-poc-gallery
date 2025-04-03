@@ -12,7 +12,7 @@ const moveToPage = (path: string) => {
 <template>  
   <div class="flex-col justify-center mt-10 mb-20">
     <p class="text-md mb-10">{{ dayjs().format('dddd, MMMM DD YYYY') }}</p>
-    <p style="font-family: Borel-Regular; font-size: 44px; font-weight: bold;">Hello_World .</p>
+    <p class="font-borel text-2xl">Hello_World .</p>
   </div>
   
   <div class="flex-col h-full justify-start align-center">

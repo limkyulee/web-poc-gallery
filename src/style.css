@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+@theme {
+  /* color */
+  --color-point: #ff9f0a;
+  --color-imac-orange: #fa744e;
+  --color-imac-orange-deep: #c75a27;
+  --color-imac-pink: #f4a6b0;
+  --color-imac-pink-deep: #ce6b84;
+  --color-black: #1c1c1e;
+
+  /* font */
+  --font-borel: Borel-Regular;
+
+  /* text */
+  --text-xs: 12px;
+  --text-sm: 15px;
+  --text-md: 18px;
+  --text-lg: 21px;
+  --text-xl: 30px;
+  --text-2xl: 50px;
+}
+
 .button {
   display: inline-block;
   padding: 10px 15px;
@@ -13,12 +34,6 @@
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
-
-/* 클릭 시 눌리는 효과 */
-/* .button:active {
-  transform: scale(0.95); 
-  background-color: #1a1a1a; 
-} */
 
 /* disabled 상태 스타일 */
 .button:disabled {

@@ -8,8 +8,8 @@ const moveToDetail = (id: string) => {
 
 <template>
   <div class="flex flex-col gap-2 h-100vh align-center">
-    <p class="text-sm" @click="moveToDetail('three')"><b>T</b>hree JS<b class="text-md">&#8250;</b></p>
-    <p class="text-sm" @click="moveToDetail('globe')"><b>G</b>lobe.gl<b class="text-md">&#8250;</b></p>
+    <p class="text-sm" @click="navigateToUpcoming(router)"><b>T</b>hree JS<b class="text-md"> &#8250;</b></p>
+    <p class="text-sm" @click="moveToDetail('globe')"><b>G</b>lobe.gl<b class="text-md"> &#8250;</b></p>
   </div>
 </template>
 

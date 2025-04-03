@@ -59,6 +59,8 @@ declare global {
   const loaders: typeof import('./composables/web-gl/three/constants')['loaders']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
   const markRaw: typeof import('vue')['markRaw']
+  const navigateToNotFound: typeof import('./utils/utils.navigate')['navigateToNotFound']
+  const navigateToUpcoming: typeof import('./utils/utils.navigate')['navigateToUpcoming']
   const nextTick: typeof import('vue')['nextTick']
   const onActivated: typeof import('vue')['onActivated']
   const onBeforeMount: typeof import('vue')['onBeforeMount']
@@ -317,6 +319,8 @@ import { UnwrapRef } from 'vue'
 declare module 'vue' {
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly ElMessage: UnwrapRef<typeof import('element-plus/es')['ElMessage']>
+    readonly ElNotification: UnwrapRef<typeof import('element-plus/es')['ElNotification']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -368,6 +372,8 @@ declare module 'vue' {
     readonly loaders: UnwrapRef<typeof import('./composables/web-gl/three/constants')['loaders']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
+    readonly navigateToNotFound: UnwrapRef<typeof import('./utils/utils.navigate')['navigateToNotFound']>
+    readonly navigateToUpcoming: UnwrapRef<typeof import('./utils/utils.navigate')['navigateToUpcoming']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
