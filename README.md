@@ -12,7 +12,9 @@ Proof-of-concept space for better web development. Feel free to enjoy it.
   - three (upcoming)
   - globe.gl
 - Animation Techniques
-  - gsap (upcoming)
+  - gsap
+    - .to()
+    - .from()
 
 
 ### Vue3 + Typescript + Vite
