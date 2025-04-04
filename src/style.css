@@ -2,12 +2,15 @@
 
 @theme {
   /* color */
-  --color-point: #ff9f0a;
+  --color-imac-black: #1c1c1e;
   --color-imac-orange: #fa744e;
   --color-imac-orange-deep: #c75a27;
   --color-imac-pink: #f4a6b0;
   --color-imac-pink-deep: #ce6b84;
-  --color-black: #1c1c1e;
+  --color-imac-green-light: #b6d7c7;
+  --color-imac-green: #6da38a;
+  --color-imac-green-dark: #2b6653;
+  --color-imac-green-highlight: #d6efe3;
 
   /* font */
   --font-borel: Borel-Regular;
