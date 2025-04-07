@@ -15,6 +15,8 @@ Proof-of-concept space for better web development. Feel free to enjoy it.
   - gsap
     - .to()
     - .from()
+- Realtime
+  - WebSocket (upcoming) 
 
 
 ### Vue3 + Typescript + Vite
