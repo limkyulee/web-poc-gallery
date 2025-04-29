@@ -1,0 +1,90 @@
+.button {
+  padding: 12px;
+  border: none;
+  border-radius: 5%;
+  background-color: var(--color-imac-black);
+  color: #fff;
+  font-size: var(--text-xs);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button--primary,
+.button--secondary,
+.button--outline,
+.button--ghost {
+  /* 공통 hover, disabled 시 텍스트 색상 */
+}
+
+.button--primary:hover,
+.button--primary:disabled,
+.button--secondary:hover,
+.button--secondary:disabled,
+.button--outline:hover,
+.button--outline:disabled,
+.button--ghost:hover,
+.button--ghost:disabled {
+  color: #fff;
+}
+
+.button--primary {
+  background-color: var(--color-imac-orange-deep);
+}
+
+.button--primary:hover {
+  background-color: var(--color-imac-orange);
+}
+
+.button--primary:disabled {
+  background-color: var(--color-orange-disabled);
+}
+
+.button--secondary {
+  background-color: var(--color-imac-pink-deep);
+}
+
+.button--secondary:hover {
+  background-color: var(--color-imac-pink);
+}
+
+.button--secondary:disabled {
+  background-color: var(--color-pink-disabled);
+}
+
+.button--outline {
+  background-color: #fff;
+  color: var(--color-imac-black);
+}
+
+.button--outline:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.button--outline:disabled {
+  border-color: #cccccc;
+  color: #999999;
+  background-color: transparent;
+}
+
+.button--ghost {
+  background-color: transparent;
+  border: none;
+  color: var(--color-imac-black);
+}
+
+.button--ghost:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.button--ghost:disabled {
+  color: #cccccc;
+  background-color: transparent;
+}

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* font */
+@import '@/assets/styles/_font.css';
+
+/* custom theme */
+@import '@/assets/styles/_variables.css';
+
+/* custom module */
+@import '@/assets/styles/app/_button.css';
+
+/* page */
+@import '@/assets/styles/pages/auth.css';

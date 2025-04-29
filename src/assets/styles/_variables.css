@@ -1,0 +1,30 @@
+
+/* color */
+:root {
+  --color-imac-black: #1c1c1e;
+  --color-imac-orange: #fa744e;
+  --color-imac-orange-deep: #c75a27;
+  --color-orange-disabled: #fbbda7;
+  --color-imac-pink: #f4a6b0;
+  --color-imac-pink-deep: #ce6b84;
+  --color-pink-disabled: #f7ccd1;
+  --color-imac-green-light: #b6d7c7;
+  --color-imac-green: #6da38a;
+  --color-imac-green-dark: #2b6653;
+  --color-imac-green-highlight: #d6efe3;
+}
+
+/* font */
+:root {
+  --font-borel: 'Borel-Regular', cursive;
+}
+
+/* text size */
+:root {
+  --text-xs: 12px;
+  --text-sm: 15px;
+  --text-md: 18px;
+  --text-lg: 21px;
+  --text-xl: 30px;
+  --text-2xl: 50px;
+}
