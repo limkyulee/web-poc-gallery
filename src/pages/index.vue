@@ -21,6 +21,7 @@ const moveToPage = (path: string) => {
       <button class="button" @click="moveToPage('/infinity')">Scroll Interaction &#10024;</button>
       <button class="button" @click="moveToPage('/web-gl')">WebGL &#10024;</button>
       <button class="button" @click="moveToPage('/gsap')">Gsap &#10024;</button>
+      <button class="button" @click="moveToPage('/auth/join')">Auth API CNN&#10024;</button>
     </div>
   </div>
 </template>

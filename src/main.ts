@@ -3,7 +3,7 @@ import App from './App.vue'
 
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import routes from 'virtual:generated-pages'
-import {setupLayouts} from 'virtual:generated-layouts'
+import { setupLayouts } from 'virtual:generated-layouts'
 
 // page
 import NotFound from '@/pages/common/not-found.vue'
@@ -13,7 +13,6 @@ import VueMaplibreGl from '@indoorequal/vue-maplibre-gl'
 
 // style
 import './style.css'
-import '/src/assets/styles/font.css'
 
 // catch-all 추가
 routes.push({

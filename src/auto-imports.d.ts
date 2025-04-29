@@ -59,6 +59,9 @@ declare global {
   const loaders: typeof import('./composables/web-gl/three/constants')['loaders']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
   const markRaw: typeof import('vue')['markRaw']
+  const navigateToHome: typeof import('./utils/utils.navigate')['navigateToHome']
+  const navigateToHone: typeof import('./utils/utils.navigate')['navigateToHone']
+  const navigateToLogin: typeof import('./utils/utils.navigate')['navigateToLogin']
   const navigateToNotFound: typeof import('./utils/utils.navigate')['navigateToNotFound']
   const navigateToUpcoming: typeof import('./utils/utils.navigate')['navigateToUpcoming']
   const nextTick: typeof import('vue')['nextTick']
@@ -369,6 +372,8 @@ declare module 'vue' {
     readonly loaders: UnwrapRef<typeof import('./composables/web-gl/three/constants')['loaders']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
+    readonly navigateToHome: UnwrapRef<typeof import('./utils/utils.navigate')['navigateToHome']>
+    readonly navigateToLogin: UnwrapRef<typeof import('./utils/utils.navigate')['navigateToLogin']>
     readonly navigateToUpcoming: UnwrapRef<typeof import('./utils/utils.navigate')['navigateToUpcoming']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
