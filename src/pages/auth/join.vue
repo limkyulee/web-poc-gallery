@@ -23,7 +23,7 @@ const requestJoin = async (data: IJoinRequest) => {
     }
 }
 
-const handelJoinBtnClick = async() => {
+const handleJoinBtnClick = async() => {
     console.info('[JOIN INFO]', email, password)
     const data = {
         username: username.value,
@@ -39,13 +39,13 @@ const handelJoinBtnClick = async() => {
 </script>
 
 <template>
-  <div class="join-container">
-    <h1 class="join-title">회원가입</h1>
-    <form class="join-form">
-      <input v-model="email" type="email" placeholder="이메일을 입력해주세요." class="join-input" />
-      <input v-model="username" type="text" placeholder="아이디를 입력해주세요." class="join-input" />
-      <input v-model="password" type="password" placeholder="비밀번호를 압력해주세요." class="join-input" />
-      <button class="join-button" @click="handelJoinBtnClick">회원가입</button>
+  <div class="auth_container">
+    <h1 class="auth_title">회원가입</h1>
+    <form class="auth_form">
+      <input v-model="email" type="email" placeholder="이메일을 입력해주세요." class="auth_input" />
+      <input v-model="username" type="text" placeholder="아이디를 입력해주세요." class="auth_input" />
+      <input v-model="password" type="password" placeholder="비밀번호를 압력해주세요." class="auth_input" />
+      <button class="auth_button" @click="handleJoinBtnClick">회원가입</button>
     </form>
   </div>
 </template>

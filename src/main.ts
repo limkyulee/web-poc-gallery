@@ -12,7 +12,7 @@ import NotFound from '@/pages/common/not-found.vue'
 import VueMaplibreGl from '@indoorequal/vue-maplibre-gl'
 
 // style
-import './style.css'
+import '@/assets/styles/main.css'
 
 // catch-all 추가
 routes.push({

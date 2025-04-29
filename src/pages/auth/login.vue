@@ -37,12 +37,12 @@ const handleLoginBtnClick = async() => {
 
 
 <template>
-    <div class="login-container">
-     <h1 class="login-title">로그인</h1>
-     <form class="login-form">
-       <input v-model="email" type="text" placeholder="아매알" class="login-input" />
-       <input v-model="password" type="password" placeholder="비밀번호" class="login-input" />
-       <button class="login-button" @click="handleLoginBtnClick">로그인</button>
+    <div class="auth_container">
+     <h1 class="auth_title">로그인</h1>
+     <form class="auth_form">
+       <input v-model="email" type="text" placeholder="이메일을 입력해주세요." class="auth_input" />
+       <input v-model="password" type="password" placeholder="비밀번호를 입력해주세요." class="auth_input" />
+       <button class="auth_button" @click="handleLoginBtnClick">로그인</button>
      </form>
    </div>
  </template>
