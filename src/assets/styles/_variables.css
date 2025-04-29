@@ -1,5 +1,5 @@
 
-/* color */
+/* Color */
 :root {
   --color-imac-black: #1c1c1e;
   --color-imac-orange: #fa744e;
@@ -14,12 +14,20 @@
   --color-imac-green-highlight: #d6efe3;
 }
 
-/* font */
+/* Font */
 :root {
   --font-borel: 'Borel-Regular', cursive;
 }
 
-/* text size */
+/* Border Radius */
+:root {
+  --radius-full: 100%;
+  --radius-lg: 15px;
+  --radius-md: 4px;
+  --radius-sm: 2px;
+}
+
+/* Text Size */
 :root {
   --text-xs: 12px;
   --text-sm: 15px;

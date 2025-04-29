@@ -8,6 +8,7 @@
 
 /* custom module */
 @import '@/assets/styles/app/_button.css';
+@import '@/assets/styles/app/_input.css';
 
 /* page */
 @import '@/assets/styles/pages/auth.css';

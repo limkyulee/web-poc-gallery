@@ -3,7 +3,7 @@
   margin: 80px auto;
   padding: 30px;
   border: 1px solid #ccc;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   background: #fff;
 }
@@ -18,12 +18,4 @@
   font-weight: bold;
   margin-bottom: 24px;
   text-align: center;
-}
-
-.auth_input {
-  margin-bottom: 16px;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
 }

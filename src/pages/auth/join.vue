@@ -42,10 +42,10 @@ const handleJoinBtnClick = async() => {
   <div class="auth_container">
     <h1 class="auth_title">회원가입</h1>
     <form class="auth_form">
-      <input v-model="email" type="email" placeholder="이메일을 입력해주세요." class="auth_input" />
-      <input v-model="username" type="text" placeholder="아이디를 입력해주세요." class="auth_input" />
-      <input v-model="password" type="password" placeholder="비밀번호를 압력해주세요." class="auth_input" />
-      <button class="auth_button" @click="handleJoinBtnClick">회원가입</button>
+      <input v-model="email" type="email" placeholder="이메일을 입력해주세요." class="input" />
+      <input v-model="username" type="text" placeholder="아이디를 입력해주세요." class="input" />
+      <input v-model="password" type="password" placeholder="비밀번호를 압력해주세요." class="input" />
+      <button class="button" @click="handleJoinBtnClick">회원가입</button>
     </form>
   </div>
 </template>
