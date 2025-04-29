@@ -17,6 +17,10 @@ Proof-of-concept space for better web development. Feel free to enjoy it.
     - .from()
 - Realtime
   - WebSocket (upcoming) 
+- REST API Test
+  - Join
+  - Login
+  - Token Test
 
 
 ### Vue3 + Typescript + Vite
