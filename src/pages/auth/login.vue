@@ -13,7 +13,7 @@ const password = ref<string>('');
 
 const requestLogin = async (data: ILoginRequest) => {
     try {
-        const res = await request.post('/api/login', data)
+        const res = await request.post('/auth/login', data)
 
         return res.status === 200
     } catch (error) {
@@ -22,7 +22,7 @@ const requestLogin = async (data: ILoginRequest) => {
 }
 
 const handleLoginBtnClick = async() => {
-    console.info('[LOGIN INFO]', email, password)
+    console.info('[LOGIN INFO]', email.value, password.value)
     const data = {
         email: email.value,
         password: password.value
@@ -39,11 +39,11 @@ const handleLoginBtnClick = async() => {
 <template>
     <div class="auth_container">
      <h1 class="auth_title">로그인</h1>
-     <form class="auth_form">
+     <div class="auth_form">
        <input v-model="email" type="text" placeholder="이메일을 입력해주세요." class="input" />
        <input v-model="password" type="password" placeholder="비밀번호를 입력해주세요." class="input" />
        <button class="button" @click="handleLoginBtnClick">로그인</button>
-     </form>
+     </div>
    </div>
  </template>
   
