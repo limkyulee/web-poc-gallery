@@ -12,3 +12,4 @@
 
 /* page */
 @import '@/assets/styles/pages/auth.css';
+@import '@/assets/styles/pages/socket.css';

@@ -1,6 +1,8 @@
 
 /* Color */
 :root {
+  --color-real-white: #fff;
+  --color-border-grey: #ddd;
   --color-imac-black: #1c1c1e;
   --color-imac-orange: #fa744e;
   --color-imac-orange-deep: #c75a27;

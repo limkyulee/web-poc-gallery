@@ -3,7 +3,7 @@
   border: none;
   border-radius: var(--radius-md);
   background-color: var(--color-imac-black);
-  color: #fff;
+  color: var(--color-real-white);
   font-size: var(--text-xs);
   text-align: center;
   cursor: pointer;
@@ -11,8 +11,8 @@
 }
 
 .button:disabled {
-  background-color: #cccccc;
-  color: #666666;
+  background-color: var(--color-border-grey);
+  color: var(--color-imac-black);
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -21,7 +21,6 @@
 .button--secondary,
 .button--outline,
 .button--ghost {
-  /* 공통 hover, disabled 시 텍스트 색상 */
 }
 
 .button--primary:hover,
@@ -32,7 +31,7 @@
 .button--outline:disabled,
 .button--ghost:hover,
 .button--ghost:disabled {
-  color: #fff;
+  color: var(--color-real-white);
 }
 
 .button--primary {
@@ -60,18 +59,17 @@
 }
 
 .button--outline {
-  background-color: #fff;
+  background-color: var(--color-real-white);
+  border: solid 0.5px var(--color-border-grey);
   color: var(--color-imac-black);
 }
 
 .button--outline:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--color-border-grey);
 }
 
 .button--outline:disabled {
-  border-color: #cccccc;
-  color: #999999;
-  background-color: transparent;
+  color: var(--color-border-grey);
 }
 
 .button--ghost {
@@ -85,6 +83,6 @@
 }
 
 .button--ghost:disabled {
-  color: #cccccc;
+  color: var(--color-border-grey);
   background-color: transparent;
 }
