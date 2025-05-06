@@ -1,4 +1,4 @@
-const KEY = {
+export const KEY = {
   KEY_ACCESS_TOKEN: "KEY_ACCESS_TOKEN"
 } as const
 
