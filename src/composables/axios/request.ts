@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { v4 as uuidv4 } from 'uuid'
+import { KEY } from '@/composables/auth/jwt'
 import AxiosMockAdapter from "axios-mock-adapter";
 
 const baseUrl: string = import.meta.env.VITE_API_CONTEXT_PATH
@@ -61,6 +63,11 @@ const service = axios.create({
 
 service.interceptors.request.use(
   async (config) => {
+    if (!config.url?.includes('/auth/login') && !config.url?.includes('/auth/join')) {
+      config.headers['X-Request-Id'] = uuidv4()
+      config.headers.Authorization = `Bearer ${localStorage.getItem(KEY.KEY_ACCESS_TOKEN)}`
+    }
+
     return config
   },
   (error) => {

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { setToken } from '@/composables/auth/jwt';
+
 
 interface ILoginRequest {
     email: string
@@ -15,7 +17,9 @@ const requestLogin = async (data: ILoginRequest) => {
     try {
         const res = await request.post('/auth/login', data)
 
-        return res.status === 200
+        if(res.status === 200){
+            return res.data.body
+        }
     } catch (error) {
         console.error(error)
     }
@@ -28,8 +32,9 @@ const handleLoginBtnClick = async() => {
         password: password.value
     }
     // 로그인 처리 로직
-    const isSuccess = await requestLogin(data)
-    if(isSuccess){
+    const res = await requestLogin(data)
+    if(res){
+        setToken(res.token)
         navigateToHome(router)
     }
 };
