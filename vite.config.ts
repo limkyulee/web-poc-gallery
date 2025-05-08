@@ -55,6 +55,9 @@ export default defineConfig(({ command, mode }) => {
       Markdown(),
       tailwindcss(),
     ],
+    define: {
+      global: 'globalThis', // ✅ 이게 진짜 핵심입니다
+    },
     resolve: {
       alias: {
         '@': `${path.resolve(__dirname, 'src')}`,

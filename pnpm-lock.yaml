@@ -57,8 +57,8 @@ importers:
         specifier: ^4.8.1
         version: 4.8.1
       sockjs-client:
-        specifier: ^1.6.1
-        version: 1.6.1
+        specifier: ^1.5.1
+        version: 1.5.1
       tailwindcss:
         specifier: ^4.0.11
         version: 4.0.11
@@ -1210,9 +1210,9 @@ packages:
   estree-walker@3.0.3:
     resolution: {integrity: sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==}
 
-  eventsource@2.0.2:
-    resolution: {integrity: sha512-IzUmBGPR3+oUG9dUeXynyNmf91/3zUSJg1lCktzKw47OXuhco54U3r9B7O4XX+Rb1Itm9OZ2b0RkTs10bICOxA==}
-    engines: {node: '>=12.0.0'}
+  eventsource@1.1.2:
+    resolution: {integrity: sha512-xAH3zWhgO2/3KIniEKYPr8plNSzlGINOUqYj0m0u7AB81iRw8b/3E73W6AuU+6klLbaSFmZnaETQ2lXPfAydrA==}
+    engines: {node: '>=0.12.0'}
 
   exsolve@1.0.4:
     resolution: {integrity: sha512-xsZH6PXaER4XoV+NiT7JHp1bJodJVT+cxeSH1G0f0tlT0lJqYuHUP3bUx2HtfTDvOagMINYp8rsqusxud3RXhw==}
@@ -1433,6 +1433,9 @@ packages:
 
   json-stringify-pretty-compact@4.0.0:
     resolution: {integrity: sha512-3CNZ2DnrpByG9Nqj6Xo8vqbjT4F6N+tb4Gb28ESAZjYZ5yqvmc56J+/kuIwkaAMOyblTQhUW7PxMkUb8Q36N3Q==}
+
+  json3@3.3.3:
+    resolution: {integrity: sha512-c7/8mbUsKigAbLkD5B010BK4D9LZm7A1pNItkEwiUZRpIN66exu/e7YQWysGun+TRKaJp8MhemM+VkfWv42aCA==}
 
   json5@2.2.3:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
@@ -2028,9 +2031,8 @@ packages:
     resolution: {integrity: sha512-oZ7iUCxph8WYRHHcjBEc9unw3adt5CmSNlppj/5Q4k2RIrhl8Z5yY2Xr4j9zj0+wzVZ0bxmYoGSzKJnRl6A4yg==}
     engines: {node: '>=10.2.0'}
 
-  sockjs-client@1.6.1:
-    resolution: {integrity: sha512-2g0tjOR+fRs0amxENLi/q5TiJTqY+WXFOzb5UwXndlK6TO3U/mirZznpx6w34HVMoc3g7cY24yC/ZMIYnDlfkw==}
-    engines: {node: '>=12'}
+  sockjs-client@1.5.1:
+    resolution: {integrity: sha512-VnVAb663fosipI/m6pqRXakEOw7nvd7TUgdr3PlR/8V2I95QIdwT8L4nMxhyU8SmDBHYXU1TOElaKOmKLfYzeQ==}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -3558,7 +3560,7 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.6
 
-  eventsource@2.0.2: {}
+  eventsource@1.1.2: {}
 
   exsolve@1.0.4: {}
 
@@ -3788,6 +3790,8 @@ snapshots:
     optional: true
 
   json-stringify-pretty-compact@4.0.0: {}
+
+  json3@3.3.3: {}
 
   json5@2.2.3: {}
 
@@ -4305,12 +4309,13 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  sockjs-client@1.6.1:
+  sockjs-client@1.5.1:
     dependencies:
       debug: 3.2.7
-      eventsource: 2.0.2
+      eventsource: 1.1.2
       faye-websocket: 0.11.4
       inherits: 2.0.4
+      json3: 3.3.3
       url-parse: 1.5.10
     transitivePeerDependencies:
       - supports-color

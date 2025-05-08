@@ -8,7 +8,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AModal: typeof import('./src/components/app/AModal.vue')['default']
-    ElDialog: typeof import('element-plus/es')['ElDialog']
     GlobeGlPOC: typeof import('./src/components/web-gl/GlobeGlPOC.vue')['default']
     ModalPOC: typeof import('./src/components/infinity-scroll/ModalPOC.vue')['default']
     PagePOC: typeof import('./src/components/infinity-scroll/PagePOC.vue')['default']

@@ -7,7 +7,6 @@ const connectStatus = ref<boolean>(false)
 const message = ref<string>('')
 // 받은 메세지 목록
 const messages = ref<string[]>([])
-const socketURL = import.meta.env.VITE_WS_URL
 
 const handleConnectStatus = () => {
   connectStatus.value = !connectStatus.value
@@ -20,7 +19,7 @@ const handleConnectStatus = () => {
 const stompClient = new Client({
   brokerURL: undefined,
   // 실제 웹소켓 연결을 생성. (SockJS 사용)
-  webSocketFactory: () => new SockJS(socketURL),
+  webSocketFactory: () => new SockJS(import.meta.env.VITE_WS_URL),
   // 연결 실패 시, 재시도 간격 (ms)
   reconnectDelay: 5000,
   // 디버깅 로그 출력
@@ -40,10 +39,8 @@ const handleSendBtnClick = () => {
   })
 }
 
-/**
- * WebSocket 연결 및 구독 설정
- */
-onMounted(() => {
+// WebSocket 연결 및 구독 설정
+const handleConnect = () => {
   stompClient.onConnect = () => {
     console.log('SUCCESS TO CONNECT')
 
@@ -62,14 +59,15 @@ onMounted(() => {
 
   // WebSocket 연결
   stompClient.activate()
-})
+}
 
-
-onBeforeUnmount(() => {
+// WebSocket 연결 해제
+const handleDisconnect = () => {
   if (stompClient && stompClient.connected) {
-    stompClient.deactivate() // 연결 해제
+    stompClient.deactivate()
   }
-})
+}
+
 </script>
 
 <template>
@@ -77,8 +75,8 @@ onBeforeUnmount(() => {
     <div class="socket-label--wrapper">
       <div class="socket-label">
         <label>WebSocket Connection</label>
-        <button class="button button--outline">Connect</button>
-        <button class="button button--outline">Disconnect</button>
+        <button class="button button--outline" @click="handleConnect">Connect</button>
+        <button class="button button--outline" @click="handleDisconnect">Disconnect</button>
       </div>
       <div class="socket-label">
         <label>What's your name?</label>
