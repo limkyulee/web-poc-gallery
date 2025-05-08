@@ -1,10 +1,75 @@
 <script setup lang="ts">
+import SockJS from 'sockjs-client'
+import { Client, IMessage } from '@stomp/stompjs';
+
 const connectStatus = ref<boolean>(false)
-const messages = ref<string[]>(['s','s','s'])
+// 보낼 메세지
+const message = ref<string>('')
+// 받은 메세지 목록
+const messages = ref<string[]>([])
+const socketURL = import.meta.env.VITE_WS_URL
 
 const handleConnectStatus = () => {
   connectStatus.value = !connectStatus.value
 }
+
+/**
+ * STOMP 클라이언트 생성
+ * STOMP 는 WebSocket 위에서 작동하는 메시징 프로토콜
+ */
+const stompClient = new Client({
+  brokerURL: undefined,
+  // 실제 웹소켓 연결을 생성. (SockJS 사용)
+  webSocketFactory: () => new SockJS(socketURL),
+  // 연결 실패 시, 재시도 간격 (ms)
+  reconnectDelay: 5000,
+  // 디버깅 로그 출력
+  debug: (str) => console.log(str),
+})
+
+/**
+ * 메시지 전송 함수
+ * stompClient.publish()로 서버에 메시지를 보냄
+ */
+const handleSendBtnClick = () => {
+  if (message.value.trim() === '') return
+
+  stompClient.publish({
+    destination: '/pub/chat', // 서버 컨트롤러의 @MessageMapping("/chat")과 매핑
+    body: message.value,      // 전송할 메세지
+  })
+}
+
+/**
+ * WebSocket 연결 및 구독 설정
+ */
+onMounted(() => {
+  stompClient.onConnect = () => {
+    console.log('SUCCESS TO CONNECT')
+
+    // 메시지를 수신할 topic 을 구독
+    stompClient.subscribe('/sub/messages', (msg: IMessage) => {
+      // 받은 메시지를 목록에 추가
+      messages.value.push(msg.body)
+    })
+  }
+
+  // 에러 발생 시 출력
+  stompClient.onStompError = (frame) => {
+    console.error('[STOMP ERROR]', frame.headers['message'])
+    console.error('[ERROR DETAIL]', frame.body)
+  }
+
+  // WebSocket 연결
+  stompClient.activate()
+})
+
+
+onBeforeUnmount(() => {
+  if (stompClient && stompClient.connected) {
+    stompClient.deactivate() // 연결 해제
+  }
+})
 </script>
 
 <template>
@@ -17,8 +82,8 @@ const handleConnectStatus = () => {
       </div>
       <div class="socket-label">
         <label>What's your name?</label>
-        <input type="text" placeholder="Enter your name" class="input" />
-        <button class="button button--outline">Send</button>
+        <input v-model="message" type="text" placeholder="Enter your name" class="input" />
+        <button class="button button--outline" @click="handleSendBtnClick">Send</button>
       </div>
     </div>
     <div class="socket-table--wrapper">
