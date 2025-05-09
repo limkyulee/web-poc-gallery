@@ -22,7 +22,12 @@ export default defineConfig(({ command, mode }) => {
     server: {
       port: 1607,
       proxy: {
-        '/api': env.VITE_PROXY_URI
+        '/api': env.VITE_PROXY_URI,
+        '/ws-rt1': {
+          target: env.VITE_WS_URI,
+          changeOrigin: true,
+          ws: true,
+        },
       },
     },
     plugins: [

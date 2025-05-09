@@ -19,7 +19,7 @@ const handleConnectStatus = () => {
 const stompClient = new Client({
   brokerURL: undefined,
   // 실제 웹소켓 연결을 생성. (SockJS 사용)
-  webSocketFactory: () => new SockJS(import.meta.env.VITE_WS_URL),
+  webSocketFactory: () => new SockJS(import.meta.env.VITE_WS_URI),
   // 연결 실패 시, 재시도 간격 (ms)
   reconnectDelay: 5000,
   // 디버깅 로그 출력
@@ -42,7 +42,7 @@ const handleSendBtnClick = () => {
 // WebSocket 연결 및 구독 설정
 const handleConnect = () => {
   stompClient.onConnect = () => {
-    console.log('SUCCESS TO CONNECT')
+    console.info('SUCCESS TO CONNECT')
 
     // 메시지를 수신할 topic 을 구독
     stompClient.subscribe('/sub/messages', (msg: IMessage) => {
