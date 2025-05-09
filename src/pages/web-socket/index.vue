@@ -33,11 +33,20 @@ const stompClient = new Client({
 const handleSendBtnClick = () => {
   if (message.value.trim() === '') return
 
+  const data = {
+    sender: "kyuleelim",
+    content: message.value,
+    type: 'CHAT'
+  }
+
   stompClient.publish({
     destination: '/pub/chat', // 서버 컨트롤러의 @MessageMapping("/chat")과 매핑
-    body: message.value,      // 전송할 메세지
+    body: JSON.stringify(data),  // 전송할 메세지
   })
 }
+
+// text to json
+const parseMessage = (msg: IMessage) => JSON.parse(msg.body)
 
 // WebSocket 연결 및 구독 설정
 const handleConnect = () => {
@@ -46,8 +55,10 @@ const handleConnect = () => {
 
     // 메시지를 수신할 topic 을 구독
     stompClient.subscribe('/sub/messages', (msg: IMessage) => {
+      const message = parseMessage(msg)
+      console.info("[MESSAGE]", message)
       // 받은 메시지를 목록에 추가
-      messages.value.push(msg.body)
+      messages.value.push(message)
     })
   }
 
@@ -59,12 +70,14 @@ const handleConnect = () => {
 
   // WebSocket 연결
   stompClient.activate()
+  handleConnectStatus()
 }
 
 // WebSocket 연결 해제
 const handleDisconnect = () => {
   if (stompClient && stompClient.connected) {
     stompClient.deactivate()
+    handleConnectStatus()
   }
 }
 
@@ -75,8 +88,8 @@ const handleDisconnect = () => {
     <div class="socket-label--wrapper">
       <div class="socket-label">
         <label>WebSocket Connection</label>
-        <button class="button button--outline" @click="handleConnect">Connect</button>
-        <button class="button button--outline" @click="handleDisconnect">Disconnect</button>
+        <button class="button button--outline" :disabled="connectStatus" @click="handleConnect">Connect</button>
+        <button class="button button--outline" :disabled="!connectStatus" @click="handleDisconnect">Disconnect</button>
       </div>
       <div class="socket-label">
         <label>What's your name?</label>
@@ -88,12 +101,16 @@ const handleDisconnect = () => {
       <table class="socket-table">
         <thead>
           <tr>
+            <th>Sender</th>
             <th>Message</th>
+            <th>Type</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(msg, index) in messages" :key="index">
-            <td>{{ msg }}</td>
+            <td>{{ msg.sender }}</td>
+            <td>{{ msg.content }}</td>
+            <td>{{ msg.type }}</td>
           </tr>
         </tbody>
       </table>
