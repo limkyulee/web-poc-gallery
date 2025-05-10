@@ -38,6 +38,7 @@ declare global {
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
   const extendRef: typeof import('@vueuse/core')['extendRef']
+  const getAccessToken: typeof import('./composables/auth/jwt')['getAccessToken']
   const getCamera: typeof import('./composables/web-gl/three/utils')['getCamera']
   const getControls: typeof import('./composables/web-gl/three/utils')['getControls']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
@@ -62,6 +63,7 @@ declare global {
   const markRaw: typeof import('vue')['markRaw']
   const navigateToHome: typeof import('./utils/utils.navigate')['navigateToHome']
   const navigateToHone: typeof import('./utils/utils.navigate')['navigateToHone']
+  const navigateToJoin: typeof import('./utils/utils.navigate')['navigateToJoin']
   const navigateToLogin: typeof import('./utils/utils.navigate')['navigateToLogin']
   const navigateToNotFound: typeof import('./utils/utils.navigate')['navigateToNotFound']
   const navigateToUpcoming: typeof import('./utils/utils.navigate')['navigateToUpcoming']
@@ -353,6 +355,7 @@ declare module 'vue' {
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
+    readonly getAccessToken: UnwrapRef<typeof import('./composables/auth/jwt')['getAccessToken']>
     readonly getCamera: UnwrapRef<typeof import('./composables/web-gl/three/utils')['getCamera']>
     readonly getControls: UnwrapRef<typeof import('./composables/web-gl/three/utils')['getControls']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
@@ -376,6 +379,7 @@ declare module 'vue' {
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly navigateToHome: UnwrapRef<typeof import('./utils/utils.navigate')['navigateToHome']>
+    readonly navigateToJoin: UnwrapRef<typeof import('./utils/utils.navigate')['navigateToJoin']>
     readonly navigateToLogin: UnwrapRef<typeof import('./utils/utils.navigate')['navigateToLogin']>
     readonly navigateToUpcoming: UnwrapRef<typeof import('./utils/utils.navigate')['navigateToUpcoming']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>

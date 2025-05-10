@@ -26,8 +26,12 @@ const stompClient = new Client({
   webSocketFactory: () => new SockJS(import.meta.env.VITE_WS_URI),
   // 연결 실패 시, 재시도 간격 (ms)
   reconnectDelay: 5000,
+  // jwt 토큰 설정
+  connectHeaders: {
+    Authorization: `Bearer ${getAccessToken()}`,
+  },
   // 디버깅 로그 출력
-  debug: (str) => console.log(str),
+  debug: (str: string) => console.info(str),
 })
 
 

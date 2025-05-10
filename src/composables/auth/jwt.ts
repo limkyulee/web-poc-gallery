@@ -1,8 +1,16 @@
+
 export const KEY = {
   KEY_ACCESS_TOKEN: "KEY_ACCESS_TOKEN"
 } as const
 
-const getAccessToken = () => {
+export const getAccessToken = () => {
+  if(!localStorage.getItem(KEY.KEY_ACCESS_TOKEN)) {
+    const router = useRouter()
+    navigateToLogin(router)
+
+    return
+  }
+
   return localStorage.getItem(KEY.KEY_ACCESS_TOKEN)
 }
 
