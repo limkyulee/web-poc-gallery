@@ -65,10 +65,14 @@
 }
 
 .button--outline:hover {
+  background-color: var(--color-real-white);
+  border: solid 0.5px var(--color-border-grey);
   color: var(--color-border-grey);
 }
 
 .button--outline:disabled {
+  background-color: var(--color-real-white);
+  border: solid 0.5px var(--color-border-grey);
   color: var(--color-border-grey);
 }
 
@@ -79,10 +83,11 @@
 }
 
 .button--ghost:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: transparent;
+  color: var(--color-border-grey);
 }
 
 .button--ghost:disabled {
-  color: var(--color-border-grey);
   background-color: transparent;
+  color: var(--color-border-grey);
 }

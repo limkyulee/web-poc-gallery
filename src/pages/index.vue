@@ -22,6 +22,7 @@ const moveToPage = (path: string) => {
       <button class="button button--primary" @click="moveToPage('/web-gl')">WebGL &#10024;</button>
       <button class="button button--secondary" @click="moveToPage('/gsap')">Gsap &#10024;</button>
       <button class="button button--outline" @click="moveToPage('/auth/join')">Auth API CNN &#10024;</button>
+      <button class="button button--ghost" @click="moveToPage('/web-socket')">WebSocket &#10024;</button>
     </div>
   </div>
 </template>

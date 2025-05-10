@@ -6,7 +6,11 @@ const connectStatus = ref<boolean>(false)
 // 보낼 메세지
 const message = ref<string>('')
 // 받은 메세지 목록
-const messages = ref<string[]>([])
+const messages = ref<{
+  sender: string,
+  content: string,
+  type: string
+}[]>([])
 
 const handleConnectStatus = () => {
   connectStatus.value = !connectStatus.value
@@ -26,10 +30,8 @@ const stompClient = new Client({
   debug: (str) => console.log(str),
 })
 
-/**
- * 메시지 전송 함수
- * stompClient.publish()로 서버에 메시지를 보냄
- */
+
+// 메세지 전송
 const handleSendBtnClick = () => {
   if (message.value.trim() === '') return
 
@@ -63,7 +65,7 @@ const handleConnect = () => {
   }
 
   // 에러 발생 시 출력
-  stompClient.onStompError = (frame) => {
+  stompClient.onStompError = (frame: { headers: { [x: string]: any; }; body: any; }) => {
     console.error('[STOMP ERROR]', frame.headers['message'])
     console.error('[ERROR DETAIL]', frame.body)
   }
